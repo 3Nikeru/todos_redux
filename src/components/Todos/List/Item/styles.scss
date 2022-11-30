@@ -1,0 +1,16 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  .check_active{
+    text-decoration: line-through;
+  }
+  .check {
+    margin-right: 5px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
