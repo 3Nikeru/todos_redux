@@ -1,23 +1,18 @@
-import { ADD_TODO } from "./types"
+import { ADD_TODO, REMOVE_TODO, CHECK_TODO } from "./types"
 
 const initialState = [];
 
 const todos = (state = initialState, action)=>{
     switch(action.type){
-        // case ENTER_TODO:
-        //     return state.value;
         case ADD_TODO:
-            return {
-                ...state.todos,
-                todos: [
-                    ...state.todos,
-                    action.todo
-                ]
-            }
-        // case CHECK_TODO:
-        //     return console.log('check');
-        // case REMOVE_TODO:
-        //     return console.log('removed');
+            return [
+                ...state,
+                action.payload
+            ]
+        case REMOVE_TODO:
+            return state.filter(todo => todo.id !== action.payload);
+        case CHECK_TODO:
+            return state.map(todo => todo.id === action.payload ? {...todo, checked: !todo.checked} : {...todo, checked: todo.checked} );
         default:
             return state;
     }

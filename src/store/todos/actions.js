@@ -1,22 +1,23 @@
-import { ENTER_TODO, ADD_TODO } from "./types"
+import { ADD_TODO, REMOVE_TODO, CHECK_TODO } from "./types"
 
-export const enterTodo = () =>{
-    return {
-        type: ENTER_TODO
-    }
-}
-
-export const addTodo = (toDoValue) =>{
+export const addTodo = (payload) =>{
     return {
         type: ADD_TODO,
-        todos: toDoValue
+        payload
     }
 }
 
-// export const removePost = (payload) =>{
-//     console.log('remove post')
-//     return {
-//         type: REMOVE_POST,
-//         payload
-//     }
-// }
+export const removeTodo = (payload) =>{
+    return {
+        type: REMOVE_TODO,
+        payload
+    }
+}
+
+export const checkTodo = (payload) =>{
+    console.log('todo checked')
+    return {
+        type: CHECK_TODO,
+        payload
+    }
+}
